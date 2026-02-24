@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:lts-ubi9
+    container_name: quiz
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: quizdb
+      MYSQL_USER: quizuser
+      MYSQL_PASSWORD: quizpassword123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+volumes:
+  mariadb-data:
