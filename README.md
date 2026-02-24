@@ -1,5 +1,10 @@
 # Bootsschule X Quiz
 
+## Anforderungen
+JAVA: >= 25 (Benutzt: 25.0.2)
+
+NODE: >= 25 (Benutzt: 25.6.1)
+
 ## Starten der Applikation
 
 ### Allgemein
@@ -28,6 +33,10 @@ Das backend erstellt automatisch die Benötigten Tabellen und seeded die Datenba
 Um das Frontend zu starten muss erst in den frontend ordner gewechselt werden
 
     cd frontend
+
+Nun müssen erstmal alle dependencys installiert werden
+
+    npm install
 
 Danach kann das Frontend gestartet werden mit
 
