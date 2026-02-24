@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Category } from '@/types/quiz';
+import Button from '@/components/Button';
 
 export default function Home() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -39,12 +40,8 @@ export default function Home() {
                 ></div>
               </div>
 
-              <Link 
-                href={`/quiz/${cat.id}`}
-                className="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-              >
-                Kategorie starten
-              </Link>
+              <Button href={`/quiz/${cat.id}`} label='Kategorie starten' />
+      
             </div>
           ))}
         </div>

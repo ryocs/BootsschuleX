@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Question, AnswerResult, Category } from '@/types/quiz';
+import Button from '@/components/Button';
 
 export default function QuizPage() {
   const { id } = useParams();
@@ -62,7 +63,8 @@ export default function QuizPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-slate-50">
         <h2 className="text-2xl font-bold mb-4">{question.message}</h2>
-        <button onClick={() => router.push('/')} className="bg-blue-600 text-white px-6 py-2 rounded-lg cursor-pointer">Zurück zur Übersicht</button>
+
+        <Button label='Zurück zur Übersicht' onClick={() => router.push('/')}  />
       </div>
     );
   }
@@ -70,7 +72,8 @@ export default function QuizPage() {
   return (
     <main className="min-h-screen bg-slate-50 p-8">
       <div className="max-w-2xl mx-auto mb-8 flex flex-col justify-center items-center">
-        <button onClick={() => router.push('/')} className="text-blue-600 hover:underline cursor-pointer self-start">&larr; Zurück zur Übersicht</button>
+
+        <Button onClick={() => router.push('/')} label='&larr; Zurück zur Übersicht' textOnly={true} className='self-start' />
         <h1 className="text-3xl font-bold text-slate-900 mt-4">{category?.name}</h1>
       </div>
 
@@ -79,18 +82,19 @@ export default function QuizPage() {
         
         <div className="space-y-4">
           {question.options.map((opt) => (
-            <button
+
+            <Button
               key={opt.id}
               onClick={() => handleAnswer(opt.id)}
               disabled={!!result}
-              className={`w-full p-4 text-left rounded-xl border-2 transition-all cursor-pointer ${
+              label={opt.text}
+              textOnly={false}
+              className={`w-full p-4 text-left rounded-xl border-2 transition-all cursor-pointer bg-transparent text-slate-600! hover:text-white! ${
                 selectedId === opt.id 
                   ? (result?.isCorrect ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50') 
                   : 'border-slate-100 hover:border-blue-400'
               } ${result && opt.id === result.correctOptionId ? 'border-green-500 bg-green-50' : ''}`}
-            >
-              {opt.text}
-            </button>
+            />
           ))}
         </div>
 
@@ -99,7 +103,8 @@ export default function QuizPage() {
             <p className={`font-bold ${result.isCorrect ? 'text-green-600' : 'text-red-600'}`}>
               {result.isCorrect ? 'Richtig! Gut gemacht!' : 'Leider falsch!'}
             </p>
-            <button onClick={fetchQuestion} className="bg-slate-900 text-white px-6 py-2 rounded-lg cursor-pointer">Nächste Frage</button>
+
+            <Button label='Nächste Frage' onClick={fetchQuestion} className="bg-slate-900 text-white px-6 py-2 rounded-lg cursor-pointer" />
           </div>
         )}
       </div>
