@@ -25,5 +25,17 @@ Das backend erstellt automatisch die Benötigten Tabellen und seeded die Datenba
 
 ### Frontend
 
+Um das Frontend zu starten muss erst in den frontend ordner gewechselt werden
+
+    cd frontend
+
+Danach kann das Frontend gestartet werden mit
+
+    npm run dev
+
+Npm run dev sollte die lokale adresse anzeigen. Ist dies nicht der fall sollte die standart adresse folgende sein:
+
+    http://localhost:3000
+
 
  
