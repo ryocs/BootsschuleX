@@ -35,7 +35,7 @@ logs/
 **/.settings/
 **/bin/
 **/*.class
-**/*.jar
+**/build/*.jar
 **/*.war
 **/*.ear
 **/hs_err_pid*
