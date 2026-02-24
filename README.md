@@ -1,7 +1,7 @@
 # Bootsschule X Quiz
 
 ## Anforderungen
-JAVA: >= 25 (Benutzt: 25.0.2)
+JAVA: >= 25 (Benutzt: Temurin 25.0.2)
 
 NODE: >= 25 (Benutzt: 25.6.1)
 
